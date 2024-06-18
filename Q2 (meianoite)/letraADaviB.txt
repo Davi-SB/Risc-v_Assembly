@@ -1,0 +1,19 @@
+lw x18, MeiaCinco
+lw x19, Oito
+lw x20, Output
+
+blt x19, x18, TRUE # 8 < 65
+
+addi x20, x0, 48
+sb   x20, 1024(x0)
+halt
+
+TRUE:
+addi x20, x0, 49
+sb   x20, 1024(x0)
+halt
+
+MeiaCinco: .word 0x41
+Oito:      .word 0x08 
+Output:    .word 0x09 #valor aleatorio
+# https://web.fe.up.pt/~ee96100/projecto/Tabela%20ascii.htm

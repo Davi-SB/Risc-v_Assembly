@@ -1,0 +1,5 @@
+logic --> 1, 0, dont care ou alta impedancia (desconectado)
+
+#num --> da um delay de num pulsos de clock
+
+Monitor só mostra quando algo muda (pos ou negedge)

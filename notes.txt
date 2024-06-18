@@ -1,0 +1,51 @@
+lw x6, var
+
+lb x5, 1025(x0) #ler do teclado usar sempre esse deslocamento a partir do zero. teclado usa sempre load bite
+sb x5, 1024(x0) #printa o reistrador no video
+halt
+
+
+var: .word 0x20 #.word faz o addi ser interpretado em hexadecimal, mas em registradores é em decimal
+
+--------------------------------------------------
+
+lw x6, vavria
+
+blt -- <
+
+bge -- >=
+
+----------------------------------------------
+
+lw x18, vA
+lw x19, vB
+lw x20, vC
+lw x21, vX
+addi x22, x0, 53
+addi x23, x0, 113
+addi x24, x0, 63
+addi x21, x0, 48
+
+blt x18, x22, falso
+ x19, x23, falso
+ x20, x24, verdade
+beq x0, x0, falso
+
+verdade:
+    addi x21, x0, 49
+falso:
+    sb x21, 1024(x0)
+    halt
+#caso teste
+vA: .word 12
+vB: .word 45
+vC: .word 18
+vX: .word 23
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+#load registrador
+lw x18, a
+lw x19, b
+lw x20, c
+lw x21, x
+
+#load constantes
+addi x22, x0, 5
+addi x23, x0, 66
+addi x24, x0, 16
+
+#ifs
+#(a >= 5 && b <= 65 && c > 15)
+blt x18, x22, deuRuim # (a < 5)
+bge x19, x23, deuRuim # (b >= 66)
+blt x20, x24, deuRuim # (c < 16)
+
+#deuBom:
+addi x21, x0, 49 # x = '1'
+
+deuRuim:
+sb x21, 1024(x0)
+halt
+
+a: .word 5
+b: .word 65
+c: .word 16
+x: .word 48 # x = '0'

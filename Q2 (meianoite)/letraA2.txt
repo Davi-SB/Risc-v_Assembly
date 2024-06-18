@@ -1,0 +1,36 @@
+#if(a >= 5 && b <= 65 && c > 15)
+
+lw x18, vA
+lw x19, vB
+lw x20, vC
+lw x6, vX
+
+addi x22, x0, 5
+addi x23, x0, 65
+addi x24, x0, 15
+#sb x22, 1024(x0) #expected 5
+#sb x23, 1024(x0) #expected 65 --
+#sb x24, 1024(x0) #expected 15
+
+addi x6, x0, 48 #bota '0' em vX
+
+#deu bom, satisfez o if, deu ruim nao satisfez o if
+bge x18, x22, deuBom  # (a >= 5)
+blt x19, x23, deuBom  # (b < 65)
+beq x19, x23, deuBom  # (b == 65)
+beq x20, x24, deuRuim # (c = 15)
+blt x20, x24, deuRuim # (c < 15)
+
+deuBom:
+addi x6, x0, 49 # bota '1' em vX
+
+deuRuim:
+sb x6, 1024(x0)
+halt
+
+vA: .word 
+vB: .word 8
+vC: .word 17
+vX: .word 0
+
+Output FOI 0 era pra ser qual n sei q exemplo eh esse 

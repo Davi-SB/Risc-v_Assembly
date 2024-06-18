@@ -1,0 +1,46 @@
+- Pinagem:
+    Vermelho Esquerda    : 13
+    Vermelho Direita     : 12
+    Amarelo Esquerda     :  8
+    Amarelo Direita      : 11
+    Verde Esquerda       :  9
+    Verde Direita        : 10
+    Sensor de temperatura: A0
+
+- Cálculo de CPI considerando o input 50°C rodando apenas uma iteração de loopInfinito, ou seja, linha "jal x0, loopInfinito" desconsiderada (comentada)
+    Qtd de Instruções executadas para o input: 11
+    Num de ciclos do relogio: 49 (medido contando cada clique em "Step", inclusive o "zero")
+
+    CPI = NumClocks / QtdInstruções = 49 / 11 = 4,45
+
+- Cálculo de taxa de leitura (vezes em que o código lê a temperatura por segundo) considerando o input 50°C e clock de 100Hz (padrão CompSim)
+    1° leitura: 30°  pulso do clock (medido contando cada clique em "Step", inclusive o "zero")
+    2° leitura: 51°  pulso do clock
+    3° leitura: 72°  pulso do clock
+    4° leitura: 93°  pulso do clock
+    5° leitura: 114° pulso do clock
+
+    Dessa forma, nota-se que cada leitura ocorre a cada 21 pulsos de clock. Portanto:
+    100 pulsos --> 1 segundo
+    21  pulsos --> x segundo
+
+    x = 21 * 1 / 100
+    x = 0,21 segundo para 1 leitura
+
+    0,21 segundo --> 1 leitura
+    1    segundo --> y leituras
+
+    y = 1 * 1 / 0.21 = 4,76
+
+    Logo, a taxa de leitura é 4,76 leituras/segundo ou 4,76Hz
+
+- Cálculo de speed-up de 10x na taxa de leitura
+    Nova taxa de leitura = 4,76 * 10
+    Nova taxa de leitura = 47,6
+
+    4,76 leituras/segundo --> 100Hz
+    47,6 leituras/segundo --> x  Hz
+
+    x = 47,6 * 100 / 4,76 = 1000Hz
+
+    Portanto, a nova frequência do clock deverá ser 1000Hz e o speed-up na taxa de leitura ocorrerá corretamente (a leitura ocorrerá 10x mais vezes por segundo)

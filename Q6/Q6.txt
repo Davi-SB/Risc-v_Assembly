@@ -1,0 +1,14 @@
+- Pinagem:
+    a:  8
+    b:  9
+    c: 10
+    d: 11
+    e:  2
+    f: 12
+    g: 13
+
+- Cálculos considerando o input "0000" no teclado
+        Qtd de Instruções executadas para o input: 62 (23 + 16 + 23)
+        Num de ciclos do relogio: 244
+
+        CPI = NumClocks / QtdInstruções = 244 / 62 = 3.93

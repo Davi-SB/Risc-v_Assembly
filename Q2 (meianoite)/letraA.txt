@@ -1,0 +1,36 @@
+lw x18, vA
+lw x19, vB
+lw x20, vC
+lw x6, vX
+
+addi x22, x0, 53
+addi x23, x0, 113
+addi x24, x0, 63
+addi x6, x0, 48
+
+sb x6, 1024(x0)  #expected 0
+sb x22, 1024(x0) #expected 5
+sb x23, 1024(x0) #expected 65
+sb x24, 1024(x0) #expected 15
+
+#deu bom, satisfez o if, deu ruim nao satisfez o if
+blt x18, x22, deuRuim
+beq x20, x24, deuRuim
+blt x20, x24, deuRuim
+beq x19, x23, deuBom
+bge x19, x23, deuRuim
+
+deuBom:
+    addi x6, x0, 49
+deuRuim:
+    sb x6, 1024(x0)
+    halt
+
+vA: .word 0x009 #9
+vB: .word 0x008 #8
+vC: .word 0x0011 #17
+vX: .word 0x0017 #23
+space: .word 0x020
+
+
+#if(a >= 5 && b <= 65 && c > 15)
