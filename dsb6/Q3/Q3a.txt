@@ -1,0 +1,23 @@
+- Formatacao do input na memoria:
+  No final do codigo, existem 4 words:
+  "sA" para o sinal de A e "a" para seu modulo.
+  "sB" para o sinal de B e "b" para seu modulo.
+  nos sinais de A e B, carregue 43 na memoria para o sinal de +, ou 45 para o sinal de -.
+  nos modulos de A e B, carregue o modulo do numero, de 0 ate 99999.
+
+  exemplo de input: 
+    sA: .word 43 
+    a:  .word 583
+    sB: .word 45 
+    b:  .word 973
+
+- Tempo de execucao maximo:
+  4541 ciclos de clock, instante em que o pc carrega a instrucao HALT, de acordo com a
+  aba de LOG do compSim
+  plataforma baseada no processador risc-v cycle accurate
+  input usado: "+99999 +99999"
+
+- Observacoes:
+  O codigo foi pensando considerando que o resultado da multiplicacao caiba
+  em um registrador. Alem disso, para facilitar a visualizacao do resultado, o codigo 
+  tambem imprime o resultado da multiplicacao no video

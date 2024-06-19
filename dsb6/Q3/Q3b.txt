@@ -1,0 +1,16 @@
+- Formatacao do input no teclado:
+  sinal do primeiro número, seguido de 5 algarismos para seu modulo.
+  espaco para separar os numeros.
+  sinal do segundo numero, seguido de 5 algarismos para seu modulo.
+
+  exemplo de input: "+00357 -01231"
+
+- Tempo de execucao maximo:
+  6442 ciclos de clock, instante em que o pc carrega a instrucao HALT, de acordo com a
+  aba de LOG do compSim.
+  plataforma baseada no processador risc-v cycle accurate
+  input usado: "+99999 +99999"
+
+- Observacao: 
+  O codigo foi pensando considerando que o resultado da multiplicacao
+  caiba em um registrador.
