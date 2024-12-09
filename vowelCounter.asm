@@ -1,3 +1,5 @@
+; Integrantes: Davi Brilhante (dsb6), Davi Dubeux (dld2) e Eduardo Mabesoone (emm4)
+
 ORG 0x7C00 ; endereço de memória do bootloader
 BITS 16 ; modo real 16 bits
     jmp start
